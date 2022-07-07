@@ -2,6 +2,7 @@ package com.oscar;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -11,6 +12,7 @@ public class GameImpl implements Game {
     private static final Logger log = LoggerFactory.getLogger(GameImpl.class);
 
     // == fields ==
+    @Autowired
     private NumberGenerator numberGenerator;
     private int guessCount = 10;
     private int number;
@@ -45,11 +47,6 @@ public class GameImpl implements Game {
         log.info("In game preDestroy()");
     }
     // == public methods ==
-    // == SETTER INJECTION ==
-    public void setNumberGenerator(NumberGenerator numberGenerator){
-        this.numberGenerator = numberGenerator;
-    }
-
     @Override
     public int getNumber() {
         return number;

@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd">
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:annotation-config/>
     <bean id="numberGenerator" class="com.oscar.NumberGeneratorImpl"/>
-    <!--
-    <bean id="game" class="com.oscar.GameImpl">
-        <constructor-arg ref="numberGenerator"/>
-    </bean> -->
 
-    <!-- number is the field of the class, and ref refers to the bean -->
     <bean id="game" class="com.oscar.GameImpl">
-        <property name="numberGenerator" ref="numberGenerator" />
     </bean>
 
-    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor">
-
-    </bean>
 </beans>
